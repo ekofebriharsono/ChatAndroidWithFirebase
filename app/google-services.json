@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1042066415600",
+    "firebase_url": "https://lugchatv1.firebaseio.com",
+    "project_id": "lugchatv1",
+    "storage_bucket": "lugchatv1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042066415600:android:a6f86303333a945b",
+        "android_client_info": {
+          "package_name": "com.maseko.root.lugchatv1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1042066415600-utducha6ont4vncu5oqrdcn2rk5r40ol.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.maseko.root.lugchatv1",
+            "certificate_hash": "bfe6a9048258509a11c6affc5f8f1a155c4313f5"
+          }
+        },
+        {
+          "client_id": "1042066415600-7ar3rpugt04vgrs0s1sujvpc87htdh3o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsEHGnwKBYatIPO_nWj3LMxnkDi0pc6Zg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1042066415600-7ar3rpugt04vgrs0s1sujvpc87htdh3o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
