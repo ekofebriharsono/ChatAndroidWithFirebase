@@ -23,6 +23,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.maseko.root.lugchatv1.Fragment.ChatsFragment;
+import com.maseko.root.lugchatv1.Fragment.ProfileFragment;
+import com.maseko.root.lugchatv1.Fragment.UsersFragment;
 import com.maseko.root.lugchatv1.Model.Chat;
 import com.maseko.root.lugchatv1.Model.User;
 
