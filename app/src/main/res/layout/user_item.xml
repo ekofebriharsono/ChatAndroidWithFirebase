@@ -1,65 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
+    android:background="?attr/selectableItemBackground"
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/profile_image"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@drawable/ic_person"
+        app:civ_circle_background_color="@color/chatBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="username"
-        android:id="@+id/username"
-        android:layout_toRightOf="@id/profile_image"
-        android:layout_toEndOf="@id/profile_image"
-        android:layout_marginLeft="10dp"
-        android:layout_centerVertical="true"
-        android:textSize="18sp"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        app:civ_border_width="10dp"
-        app:civ_border_color="#05df29"
         android:id="@+id/img_on"
-        android:visibility="gone"
-        android:src="@mipmap/ic_launcher"
-        android:layout_below="@id/username"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="-15dp"
-        android:layout_toRightOf="@id/profile_image"
-        android:layout_toEndOf="@id/profile_image"/>
-
-    <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="15dp"
         android:layout_height="15dp"
-        app:civ_border_width="10dp"
-        app:civ_border_color="#bfbfbf"
-        android:id="@+id/img_off"
-        android:visibility="gone"
-        android:src="@mipmap/ic_launcher"
-        android:layout_below="@id/username"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="-15dp"
+        android:layout_toEndOf="@id/profile_image"
         android:layout_toRightOf="@id/profile_image"
-        android:layout_toEndOf="@id/profile_image"/>
+        android:src="@mipmap/ic_launcher"
+        android:visibility="gone"
+        app:civ_border_color="#05df29"
+        app:civ_border_width="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+        app:layout_constraintEnd_toEndOf="@+id/profile_image" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_off"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_toEndOf="@id/profile_image"
+        android:layout_toRightOf="@id/profile_image"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="gone"
+        app:civ_border_color="#bfbfbf"
+        app:civ_border_width="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+        app:layout_constraintEnd_toEndOf="@+id/profile_image" />
 
     <TextView
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/username"
-        android:layout_toRightOf="@id/profile_image"
-        android:layout_marginTop="5dp"
-        android:paddingTop="5dp"
-        android:id="@+id/last_msg"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginLeft="20dp"
-        android:maxLines="1"/>
+        android:layout_marginStart="8dp"
+        android:text="username"
+        android:textColor="#000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/last_msg"
+        app:layout_constraintStart_toEndOf="@+id/profile_image"
+        app:layout_constraintTop_toTopOf="@+id/profile_image"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/last_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:maxLines="1"
+        android:paddingTop="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+        app:layout_constraintStart_toStartOf="@+id/username"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>

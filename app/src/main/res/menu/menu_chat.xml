@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/video_call"
+        android:title="Video Call"
+        android:icon="@drawable/ic_videocam"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/voice_call"
+        android:title="Voice Call"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_call"/>
+
+    <item
+        android:id="@+id/kontak"
+        android:title="Lihat kontak"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/blokir"
+        android:title="Blokir"
+        app:showAsAction="never" />
+
+</menu>

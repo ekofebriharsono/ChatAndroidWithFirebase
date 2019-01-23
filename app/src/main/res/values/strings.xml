@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LugChatV1</string>
+    <string name="app_name">LugChat</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="username">Username</string>
