@@ -29,7 +29,10 @@ import com.maseko.root.lugchatv1.Fragment.UsersFragment;
 import com.maseko.root.lugchatv1.Model.Chat;
 import com.maseko.root.lugchatv1.Model.User;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import butterknife.BindView;
@@ -196,6 +199,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        status("offline");
+        status(getWaktu());
+    }
+
+    private String getTanggal() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+
+    private String getWaktu() {
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 }

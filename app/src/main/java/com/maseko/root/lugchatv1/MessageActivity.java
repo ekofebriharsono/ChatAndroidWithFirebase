@@ -35,7 +35,10 @@ import com.maseko.root.lugchatv1.Notification.MyResponse;
 import com.maseko.root.lugchatv1.Notification.Sender;
 import com.maseko.root.lugchatv1.Notification.Token;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -54,6 +57,9 @@ public class MessageActivity extends AppCompatActivity {
 
     @BindView(R.id.username)
     TextView username;
+
+    @BindView(R.id.status)
+    TextView status;
 
     @BindView(R.id.text_send)
     EditText text_send;
@@ -121,6 +127,12 @@ public class MessageActivity extends AppCompatActivity {
                     Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
                 }
 
+                if (user.getStatus().equals("online")){
+                    status.setText("Online");
+                } else {
+                    status.setText(user.getStatus());
+                }
+
                 readMesagges(fuser.getUid(), userid, user.getImageURL());
             }
 
@@ -132,6 +144,18 @@ public class MessageActivity extends AppCompatActivity {
 
         seenMessage(userid);
 
+    }
+
+    private String getTanggal() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+
+    private String getWaktu() {
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 
 
@@ -250,7 +274,7 @@ public class MessageActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Token token = snapshot.getValue(Token.class);
-                    Data data = new Data(fuser.getUid(), R.mipmap.ic_launcher, username + ": " + message, "New Message",
+                    Data data = new Data(fuser.getUid(), R.mipmap.ic_launcher_logo, username + ": " + message, "New Message",
                             userid);
 
                     Sender sender = new Sender(data, token.getToken());
