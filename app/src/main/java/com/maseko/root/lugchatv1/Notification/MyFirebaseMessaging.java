@@ -19,6 +19,8 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.maseko.root.lugchatv1.MessageActivity;
 
+import java.util.Objects;
+
 import static android.content.Context.MODE_PRIVATE;
 
 public class MyFirebaseMessaging extends FirebaseMessagingService {
@@ -35,12 +37,12 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (firebaseUser != null && sented.equals(firebaseUser.getUid())){
+        if (firebaseUser != null && Objects.equals(sented, firebaseUser.getUid())){
             if (!currentUser.equals(user)) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                   // sendOreoNotification(remoteMessage);
+                    sendOreoNotification(remoteMessage);
                 } else {
-                   // sendNotification(remoteMessage);
+                    sendNotification(remoteMessage);
                 }
             }
         }
