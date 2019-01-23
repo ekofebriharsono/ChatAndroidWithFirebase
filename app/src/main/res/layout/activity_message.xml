@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/chatBackground"
+    android:background="@drawable/background"
     tools:context=".MessageActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -16,24 +16,44 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/MenuStyle">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:id="@+id/profile_image"/>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/username"
-                android:textSize="20sp"
-                android:layout_marginLeft="25dp"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:layout_marginStart="25dp" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/username"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="25dp"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:text="maseko"
+                    android:layout_marginStart="25dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/status"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="25dp"
+                    android:textColor="#fff"
+                    android:text="Offline"
+                    android:layout_marginStart="25dp" />
+
+            </LinearLayout>
+
+
 
         </android.support.v7.widget.Toolbar>
 

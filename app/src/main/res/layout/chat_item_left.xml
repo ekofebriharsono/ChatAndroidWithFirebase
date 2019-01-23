@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="300dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="8dp"
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:id="@+id/profile_image"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@drawable/ic_person"
+        app:civ_circle_background_color="@color/chatBackground"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,9 +19,11 @@
         android:layout_marginLeft="5dp"
         android:text="hello"
         android:id="@+id/show_message"
-        android:textSize="18sp"
+        android:textSize="14sp"
+        android:textColor="#000"
         android:padding="8dp"
-        android:background="@drawable/ic_launcher_background"/>
+        android:background="@drawable/background_left"
+        android:drawableEnd="@color/bg_item_chat"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,6 +31,16 @@
         android:id="@+id/txt_seen"
         android:visibility="gone"
         android:layout_below="@id/show_message"/>
+
+    <ImageView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_done_all"
+        android:visibility="gone"
+       />
 
 
 </RelativeLayout>

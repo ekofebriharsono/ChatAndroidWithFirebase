@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:hint="Search..."
+        android:visibility="gone"
         android:id="@+id/search_users"/>
 
     <android.support.v7.widget.RecyclerView

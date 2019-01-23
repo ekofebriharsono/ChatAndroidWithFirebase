@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:padding="8dp"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="300dp"
         android:layout_alignParentEnd="true"
         android:layout_height="wrap_content"
@@ -18,25 +19,38 @@
             android:visibility="gone"/>
 
         <TextView
+            android:id="@+id/show_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_launcher_background"
-            android:text="hello"
             android:layout_alignParentEnd="true"
-            android:id="@+id/show_message"
-            android:textSize="18sp"
-            android:textColor="#fff"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/background_right"
+            android:drawablePadding="8dp"
             android:padding="8dp"
-            android:layout_alignParentRight="true" />
+            android:text="hello"
+            android:textColor="#000"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_done_all"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/show_message" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txt_seen"
+            android:visibility="gone"
             android:layout_below="@id/show_message"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </RelativeLayout>

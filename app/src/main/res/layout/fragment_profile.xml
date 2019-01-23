@@ -12,40 +12,55 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:padding="8dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Profile"
                 android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:id="@+id/profile_image"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
+                android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="username"
                 android:layout_below="@id/profile_image"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:text="username"
                 android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:id="@+id/username"
                 android:textSize="18sp"
-                android:layout_marginBottom="20dp"/>
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnKeluar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/username"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:text="Keluar"
+                android:clickable="true"
+                android:focusable="true"
+                android:textAllCaps="false"
+                android:textColor="#ed0000"
+                android:textSize="18sp"
+                android:background="?attr/selectableItemBackground"
+                android:textStyle="bold" />
 
         </RelativeLayout>
-
-
 
     </android.support.v7.widget.CardView>
 

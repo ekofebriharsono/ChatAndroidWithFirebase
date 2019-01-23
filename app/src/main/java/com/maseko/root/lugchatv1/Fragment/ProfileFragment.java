@@ -31,13 +31,16 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.maseko.root.lugchatv1.MainActivity;
 import com.maseko.root.lugchatv1.Model.User;
 import com.maseko.root.lugchatv1.R;
+import com.maseko.root.lugchatv1.StartActivity;
 
 import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.app.Activity.RESULT_OK;
@@ -182,5 +185,10 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    @OnClick(R.id.btnKeluar)
+    public void userLogout(){
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getContext(), StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+    }
 
 }

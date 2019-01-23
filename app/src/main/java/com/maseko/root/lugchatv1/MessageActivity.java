@@ -90,7 +90,8 @@ public class MessageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // and this
-                startActivity(new Intent(MessageActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                onBackPressed();
+               // startActivity(new Intent(MessageActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
 
