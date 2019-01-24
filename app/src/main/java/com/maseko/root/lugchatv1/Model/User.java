@@ -6,13 +6,15 @@ public class User {
     private String imageURL;
     private String status;
     private String search;
+    private String status_msg;
 
-    public User(String id, String username, String imageURL, String status, String search) {
+    public User(String id, String username, String imageURL, String status, String search, String status_msg) {
         this.id = id;
         this.username = username;
         this.imageURL = imageURL;
         this.status = status;
         this.search = search;
+        this.status_msg = status_msg;
     }
 
     public User() {
@@ -57,5 +59,13 @@ public class User {
 
     public void setSearch(String search) {
         this.search = search;
+    }
+
+    public String getStatus_msg() {
+        return status_msg;
+    }
+
+    public void setStatus_msg(String status_msg) {
+        this.status_msg = status_msg;
     }
 }

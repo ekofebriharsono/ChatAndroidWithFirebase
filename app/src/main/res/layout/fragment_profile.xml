@@ -38,19 +38,30 @@
                 android:layout_below="@id/profile_image"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="20dp"
                 android:text="username"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/username"
+                android:layout_centerHorizontal="true"
+                android:text="status"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorPrimary"
+                android:drawableStart="@drawable/ic_edit"
+                android:textSize="18sp" />
+
             <Button
                 android:id="@+id/btnKeluar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/username"
+                android:layout_below="@id/status"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:text="Keluar"
                 android:clickable="true"
                 android:focusable="true"

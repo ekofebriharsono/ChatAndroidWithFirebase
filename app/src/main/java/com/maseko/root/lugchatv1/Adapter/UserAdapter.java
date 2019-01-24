@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -60,7 +61,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         if (ischat){
             lastMessage(user.getId(), holder.last_msg);
         } else {
-            holder.last_msg.setVisibility(View.GONE);
+          //  holder.last_msg.setVisibility(View.GONE);
+            holder.last_msg.setText(user.getStatus_msg());
         }
 
         if (ischat){
