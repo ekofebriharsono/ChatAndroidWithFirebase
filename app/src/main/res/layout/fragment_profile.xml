@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="8dp"
     tools:context=".Fragment.ProfileFragment">
 
@@ -28,8 +29,9 @@
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
+                app:civ_circle_background_color="#c9c9c9"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_person_large" />
 
             <TextView
                 android:id="@+id/username"

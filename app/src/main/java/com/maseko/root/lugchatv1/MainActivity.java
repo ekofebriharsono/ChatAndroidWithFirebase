@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
               //  username.setText(user.getUsername());
                 lastSee = user.getLastSee();
                 if (user.getImageURL().equals("default")){
-                    profile_image.setImageResource(R.mipmap.ic_launcher);
+                    profile_image.setImageResource(R.drawable.ic_person);
                 } else {
 
                     //change this

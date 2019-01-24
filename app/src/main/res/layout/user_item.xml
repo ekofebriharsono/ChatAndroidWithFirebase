@@ -48,22 +48,38 @@
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:maxLength="15"
+        android:maxLines="1"
         android:text="username"
         android:textColor="#000"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/last_msg"
+        app:layout_constraintEnd_toStartOf="@id/time"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@+id/profile_image"
         app:layout_constraintTop_toTopOf="@+id/profile_image"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="20:06"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/username" />
+
+    <TextView
         android:id="@+id/last_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:maxLines="1"
         android:paddingTop="5dp"
         android:textColor="@color/colorPrimaryDark"

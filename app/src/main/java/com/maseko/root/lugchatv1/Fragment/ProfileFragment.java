@@ -92,7 +92,7 @@ public class ProfileFragment extends Fragment {
                 username.setText(user.getUsername());
                 status.setText(user.getStatus_msg());
                 if (user.getImageURL().equals("default")){
-                    image_profile.setImageResource(R.mipmap.ic_launcher);
+                    image_profile.setImageResource(R.drawable.ic_person_large);
                 } else {
                     Glide.with(getActivity()).load(user.getImageURL()).into(image_profile);
                 }
