@@ -1,8 +1,11 @@
 package com.maseko.root.lugchatv1.Fragment;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,7 +14,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.webkit.MimeTypeMap;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -192,6 +197,40 @@ public class ProfileFragment extends Fragment {
     public void userLogout(){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getContext(), StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+    }
+
+    @OnClick(R.id.status)
+    public void changeStatusUser(){
+       final Dialog dialogChangeStatusUser = new Dialog(getContext());
+        dialogChangeStatusUser.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogChangeStatusUser.setContentView(R.layout.layout_dialog_edit_status);
+
+        final EditText editText = dialogChangeStatusUser.findViewById(R.id.edStatus);
+        TextView simpan = dialogChangeStatusUser.findViewById(R.id.simpan);
+
+        editText.setText(status.getText().toString());
+
+        simpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final ProgressDialog pd = new ProgressDialog(getContext());
+                pd.setMessage("Uploading");
+                pd.show();
+
+                reference = FirebaseDatabase.getInstance().getReference("Users").child(fuser.getUid());
+                HashMap<String, Object> map = new HashMap<>();
+                map.put("status_msg", ""+editText.getText().toString());
+                reference.updateChildren(map);
+
+                pd.dismiss();
+
+                dialogChangeStatusUser.dismiss();
+
+            }
+        });
+
+        dialogChangeStatusUser.show();
     }
 
 }
