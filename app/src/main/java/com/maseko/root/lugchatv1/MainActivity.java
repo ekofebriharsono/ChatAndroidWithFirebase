@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser firebaseUser;
     DatabaseReference reference;
 
+    String lastSee;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
               //  username.setText(user.getUsername());
+                lastSee = user.getLastSee();
                 if (user.getImageURL().equals("default")){
                     profile_image.setImageResource(R.mipmap.ic_launcher);
                 } else {
@@ -172,6 +175,15 @@ public class MainActivity extends AppCompatActivity {
         reference.updateChildren(hashMap);
     }
 
+    private void LastSee(String lastSee){
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("lastSee", lastSee);
+
+        reference.updateChildren(hashMap);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -201,11 +213,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        status(getWaktu());
+        LastSee(getTanggal());
+
+        if (lastSee.equals(getTanggal())){
+            status(getWaktu() + " Hari ini");
+        } else {
+            status(getWaktu()+"  "+getTanggal());
+        }
+
     }
 
     private String getTanggal() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         return dateFormat.format(date);
     }

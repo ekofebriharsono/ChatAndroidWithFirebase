@@ -233,4 +233,38 @@ public class ProfileFragment extends Fragment {
         dialogChangeStatusUser.show();
     }
 
+    @OnClick(R.id.username)
+    public void changeUsernameUser(){
+        final Dialog dialogChangeStatusUser = new Dialog(getContext());
+        dialogChangeStatusUser.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogChangeStatusUser.setContentView(R.layout.layout_dialog_edit_status);
+
+        final EditText editText = dialogChangeStatusUser.findViewById(R.id.edStatus);
+        TextView simpan = dialogChangeStatusUser.findViewById(R.id.simpan);
+
+        editText.setText(username.getText().toString());
+
+        simpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final ProgressDialog pd = new ProgressDialog(getContext());
+                pd.setMessage("Uploading");
+                pd.show();
+
+                reference = FirebaseDatabase.getInstance().getReference("Users").child(fuser.getUid());
+                HashMap<String, Object> map = new HashMap<>();
+                map.put("username", ""+editText.getText().toString());
+                reference.updateChildren(map);
+
+                pd.dismiss();
+
+                dialogChangeStatusUser.dismiss();
+
+            }
+        });
+
+        dialogChangeStatusUser.show();
+    }
+
 }
