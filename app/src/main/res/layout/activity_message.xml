@@ -23,7 +23,9 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:src="@drawable/ic_person"
+                app:civ_circle_background_color="@color/chatBackground" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -34,9 +36,9 @@
                     android:id="@+id/username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="maseko"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
+                    android:text="maseko"
                     android:textColor="#fff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -70,17 +72,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="5dp">
+        android:padding="4dp">
 
         <LinearLayout
             android:id="@+id/container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_rounded"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/bg_rounded"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_send"
             app:layout_constraintStart_toStartOf="parent"

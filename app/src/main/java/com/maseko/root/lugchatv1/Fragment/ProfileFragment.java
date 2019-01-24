@@ -197,6 +197,7 @@ public class ProfileFragment extends Fragment {
     public void userLogout(){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getContext(), StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        getActivity().finish();
     }
 
     @OnClick(R.id.status)
