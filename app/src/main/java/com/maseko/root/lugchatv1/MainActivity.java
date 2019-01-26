@@ -10,9 +10,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +62,13 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference reference;
 
     String lastSee;
+    private Menu mMenu;
+    private Menu menu;
+    private MenuItem mMenuItem;
+    private SearchView mSearchView;
+    private EditText mTextSearch;
+    ViewPagerAdapter viewPagerAdapter ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
+
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
@@ -98,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+                 viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
                 int unread = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Chat chat = snapshot.getValue(Chat.class);
@@ -120,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
 
                 tabLayout.setupWithViewPager(viewPager);
 
+              //  showMenu();
+
             }
 
             @Override
@@ -129,41 +142,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-    }
-
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-
-        private ArrayList<Fragment> fragments;
-        private ArrayList<String> titles;
-
-        ViewPagerAdapter(FragmentManager fm){
-            super(fm);
-            this.fragments = new ArrayList<>();
-            this.titles = new ArrayList<>();
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return fragments.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return fragments.size();
-        }
-
-        public void addFragment(Fragment fragment, String title){
-            fragments.add(fragment);
-            titles.add(title);
-        }
-
-        // Ctrl + O
-
-        @Nullable
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return titles.get(position);
-        }
     }
 
     private void status(String status){
@@ -187,7 +165,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+        this.menu = menu;
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -199,11 +179,44 @@ public class MainActivity extends AppCompatActivity {
                 // change this code beacuse your app will crash
                 startActivity(new Intent(MainActivity.this, StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 finish();
+            case  R.id.search:
+                //showSearchView();
+             //   mMenuItem.expandActionView();
                 return true;
         }
 
         return false;
     }
+
+  /*  private boolean hideAllMenu() {
+        if (menu != null) {
+            for (int i = 0; i < menu.size(); i++) {
+                menu.getItem(i).setVisible(false);
+            }
+
+            return true;
+        }
+
+        return false;
+    }*/
+
+  /*  private void showMenu() {
+
+     //   Fragment fragment = viewPagerAdapter.g
+        Fragment fragment = viewPagerAdapter.getItem(viewPager.getCurrentItem());
+
+        if (hideAllMenu()) {
+            if (fragment instanceof UsersFragment) {
+                menu.findItem(R.id.logout).setVisible(true);
+                menu.findItem(R.id.search).setVisible(true);
+            } else if (fragment instanceof ChatsFragment) {
+                menu.findItem(R.id.logout).setVisible(true);
+                menu.findItem(R.id.search).setVisible(true);
+            } else if (fragment instanceof ProfileFragment) {
+                menu.findItem(R.id.search).setVisible(false);
+            }
+        }
+    }*/
 
     @Override
     protected void onResume() {
@@ -214,13 +227,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        LastSee(getTanggal());
 
         if (lastSee.equals(getTanggal())){
             status(getWaktu() + " Hari ini");
         } else {
             status(getWaktu()+"  "+getTanggal());
         }
+        LastSee(getTanggal());
 
     }
 
